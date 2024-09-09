@@ -24,6 +24,10 @@ public class StepDefs {
     Pom pom = new Pom();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
 
+
+    /**
+     * TC_01
+     */
     @Given("Job seeker is on Google page")
     public void job_seeker_is_on_google_page() {
         wait.until(ExpectedConditions.titleIs("Google"));
@@ -36,12 +40,19 @@ public class StepDefs {
         pom.searchBox.sendKeys(Keys.ENTER);
     }
 
+    /**
+     * TC_02
+     */
     @Then("The first result should be the official Infinite Campus career page")
     public void the_first_result_should_be_the_official_infinite_campus_career_page() {
         pom.firstResult.click();
         Assert.assertEquals("Careers · Infinite Campus",Driver.getDriver().getTitle());
     }
 
+
+    /**
+     * TC_03
+     */
     @And("the page should have one or more View Open Positions buttons")
     public void the_page_should_have_one_or_more_buttons() {
         Assert.assertTrue(pom.viewOpenPositions.isDisplayed());
